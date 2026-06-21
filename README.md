@@ -24,6 +24,8 @@ The goal of this repository is to demonstrate an end-to-end computer vision work
 The model is trained on the [DeepFire Forest Fire Dataset](https://www.kaggle.com/datasets/alik05/forest-fire-dataset). 
 The dataset contains 1,900 images perfectly balanced between two classes: `fire` (950) and `nofire` (950).
 
+![Sample Images](results/sample_images.png)
+
 ## Results
 
 Four models were trained and evaluated on the test set:
@@ -35,9 +37,17 @@ Four models were trained and evaluated on the test set:
 
 Transfer learning significantly reduced false negatives and false positives, with MobileNetV2 achieving the best overall performance. However, the Improved CNN demonstrated that architectural depth and regularization can substantially boost performance even when training entirely from scratch on a small dataset.
 
+### Performance Comparison
+![Model Comparison](results/model_comparison.png)
+
+### Best Model: MobileNetV2
+![MobileNetV2 Confusion Matrix](results/mobilenetv2_frozen_confusion_matrix.png)
+
 ## Interpretability
 
 To ensure the models are learning the correct visual features, we implemented **Grad-CAM** and **EigenCAM**. These techniques visualize where the model is "looking" when making a decision. The generated heatmaps confirm that the models focus accurately on the flames and smoke plumes rather than background artifacts. EigenCAM, in particular, produces very sharp, class-agnostic structural bounding maps.
+
+![Grad-CAM True Positives](results/gradcam_true_positives.png)
 
 ## How to Run
 
