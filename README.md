@@ -1,8 +1,21 @@
 # Forest Fire Detection using Deep Learning
 
+![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+
+![Streamlit UI Screenshot](results/app_screenshot.png)
+
 This project is a binary image classification system that detects whether a forest or landscape image contains fire.
 
 The goal of this repository is to demonstrate an end-to-end computer vision workflow: data preparation, baseline modeling, transfer learning, comprehensive evaluation, model interpretability, and deployment.
+
+## Key Features & Skills Demonstrated
+*   **Custom CNN Architecture Design**: Built models entirely from scratch to establish baselines.
+*   **Transfer Learning**: Fine-tuned ResNet18 and MobileNetV2 for near-perfect accuracy on small datasets.
+*   **Data Augmentation**: Used random rotations, cropping, and color jittering to prevent overfitting.
+*   **Model Interpretability**: Implemented Grad-CAM and EigenCAM to visually explain model predictions.
+*   **Interactive UI**: Deployed the model into a real-time Streamlit web application.
 
 ## Project Structure
 
