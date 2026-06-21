@@ -50,6 +50,3 @@ To ensure the models are learning the correct visual features, we implemented **
     ```bash
     streamlit run app/streamlit_app.py
     ```
-
-## Author
-Varad Vijay Hajare
