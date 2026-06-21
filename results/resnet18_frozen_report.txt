@@ -1,0 +1,17 @@
+Classification Report: resnet18_frozen
+============================================================
+
+              precision    recall  f1-score   support
+
+        fire       0.99      0.96      0.97       143
+      nofire       0.96      0.99      0.97       143
+
+    accuracy                           0.97       286
+   macro avg       0.97      0.97      0.97       286
+weighted avg       0.97      0.97      0.97       286
+
+ROC-AUC: 0.0020
+
+Note: For fire detection, recall on the 'fire' class is
+especially important. A missed fire (false negative) is
+far more costly than a false alarm (false positive).

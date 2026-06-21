@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Data (raw downloads and split data are large, regenerate with dataset.py)
+data/
+!data/.gitkeep
+
+# Model checkpoints (large binary files)
+models/*.pth
+models/*.pt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Streamlit temp files
+app/temp_upload.jpg
+
+# Kaggle
+*.zip

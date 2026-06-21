@@ -1,0 +1,17 @@
+Classification Report: improved_cnn
+============================================================
+
+              precision    recall  f1-score   support
+
+        fire       0.96      0.96      0.96       143
+      nofire       0.96      0.96      0.96       143
+
+    accuracy                           0.96       286
+   macro avg       0.96      0.96      0.96       286
+weighted avg       0.96      0.96      0.96       286
+
+ROC-AUC: 0.0061
+
+Note: For fire detection, recall on the 'fire' class is
+especially important. A missed fire (false negative) is
+far more costly than a false alarm (false positive).
