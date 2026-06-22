@@ -51,7 +51,7 @@ Four models were trained and evaluated on the test set:
 Transfer learning significantly reduced false negatives and false positives, with MobileNetV2 achieving the best overall performance. However, the Improved CNN demonstrated that architectural depth and regularization can substantially boost performance even when training entirely from scratch on a small dataset.
 
 ### Performance Comparison
-![Model Comparison](results/model_comparison.png)
+![Model Comparison](results/model_comparison.png?v=2)
 
 ### Best Model: MobileNetV2
 ![MobileNetV2 Confusion Matrix](results/mobilenetv2_frozen_confusion_matrix.png)
