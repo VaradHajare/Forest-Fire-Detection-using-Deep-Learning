@@ -336,25 +336,57 @@ def compare_models(results_dir="results", save_path="results/model_comparison.pn
 
     # Bar chart comparison
     if len(all_metrics) > 1:
+        # Try to use a cleaner style if available
+        try:
+            plt.style.use('seaborn-v0_8-whitegrid')
+        except:
+            pass
+
         x = np.arange(len(model_names))
         width = 0.25
 
-        fig, ax = plt.subplots(figsize=(12, 6))
-        ax.bar(x - width, accuracies, width, label="Accuracy", color="#2196F3")
-        ax.bar(x, fire_recalls, width, label="Fire Recall", color="#FF5722")
-        ax.bar(x + width, fire_f1s, width, label="Fire F1", color="#4CAF50")
+        fig, ax = plt.subplots(figsize=(12, 7))
+        
+        # Modern color palette
+        colors = ['#3B82F6', '#EF4444', '#10B981']
+        
+        rects1 = ax.bar(x - width, accuracies, width, label="Accuracy", color=colors[0], edgecolor='white', linewidth=1)
+        rects2 = ax.bar(x, fire_recalls, width, label="Fire Recall", color=colors[1], edgecolor='white', linewidth=1)
+        rects3 = ax.bar(x + width, fire_f1s, width, label="Fire F1", color=colors[2], edgecolor='white', linewidth=1)
 
-        ax.set_xlabel("Model")
-        ax.set_ylabel("Score")
-        ax.set_title("Model Comparison")
+        ax.set_xlabel("Model Architecture", fontsize=12, fontweight='bold', labelpad=10)
+        ax.set_ylabel("Score", fontsize=12, fontweight='bold', labelpad=10)
+        ax.set_title("Performance Comparison Across Models", fontsize=16, fontweight='bold', pad=20)
         ax.set_xticks(x)
-        ax.set_xticklabels(model_names, rotation=15, ha="right")
-        ax.legend()
-        ax.set_ylim(0, 1.05)
-        ax.grid(True, alpha=0.3, axis="y")
+        
+        # Clean up model names
+        clean_names = [n.replace("_", " ").title().replace("Cnn", "CNN") for n in model_names]
+        ax.set_xticklabels(clean_names, fontsize=11)
+        ax.legend(fontsize=11, loc='upper left', bbox_to_anchor=(1, 1))
+        
+        # Focus the y-axis on the relevant range to highlight differences
+        ax.set_ylim(0.90, 1.01)
+        
+        # Add value labels on top of bars
+        def autolabel(rects):
+            for rect in rects:
+                height = rect.get_height()
+                ax.annotate(f'{height:.3f}',
+                            xy=(rect.get_x() + rect.get_width() / 2, height),
+                            xytext=(0, 4),
+                            textcoords="offset points",
+                            ha='center', va='bottom', fontsize=9)
+        
+        autolabel(rects1)
+        autolabel(rects2)
+        autolabel(rects3)
+
+        ax.grid(True, alpha=0.3, axis="y", linestyle='--')
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
 
         plt.tight_layout()
-        plt.savefig(save_path, dpi=150, bbox_inches="tight")
+        plt.savefig(save_path, dpi=200, bbox_inches="tight")
         plt.close()
         print(f"\nComparison chart saved to {save_path}")
 
